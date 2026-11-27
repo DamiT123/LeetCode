@@ -1,17 +1,24 @@
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
-        """ O(n^2) Solution
-            for i in range(len(nums)):
-                for j in range(i + 1, (len(nums))):
-                    if nums[i] + nums[j] == target:
-                            return [i,j] """
-        # O(n) Solution
-        seen = {}
+        # On^2
+        """for i, x in enumerate(nums):
+            need = target - x
+            for j in range(i+1, len(nums)):
+                if nums[j] == need:
+                    return [i,j]"""
+        
+        #On
+        prevnums = {}
         for i, x in enumerate(nums):
-            wanted = target - x
-            if wanted in seen:
-                return [i,seen[wanted]]
-            seen[x] = i
+            diff = target - x
+            if diff in prevnums:
+                return [prevnums[diff], i]
+            prevnums[x] = i
+
+
+
+           
+
             
             
             
